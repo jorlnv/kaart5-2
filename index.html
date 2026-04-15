@@ -185,6 +185,13 @@ async function initMap() {
         setupToggle('toggleWaterschap', 'waterschap_layer');
         setupToggle('toggleProvincie', 'provincie_layer');
         setupToggle('toggleGemeente', 'gemeente_layer');
+        setupToggle('toggleVeluwe', 'veluwe_layer');
+        setupToggle('togglePeel', 'peel_layer');
+        setupToggle('toggleHartNoorden', 'hart_noorden_layer');
+        setupToggle('toggleGroeneHart', 'groene_hart_layer');
+        setupToggle('toggleOverijssel', 'noordwest_overijssel_layer');
+        setupToggle('toggleBrainport', 'brainport_layer');
+        setupToggle('toggleRotterdam', 'rotterdam_layer');
 
         document.getElementById('toggleBaseMap').addEventListener('change', (e) => {
             const visibility = e.target.checked ? 'visible' : 'none';
