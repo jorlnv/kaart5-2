@@ -186,6 +186,41 @@ async function initMap() {
             });
         };
 
+         // --- Hover events ---
+
+        map.on('mousemove', 'n2000S_layer', (e) => {
+            map.getCanvas().style.cursor = 'pointer';
+            
+            const props = e.features[0].properties;
+            const name = props.naam_n2k || 'Onbekend';
+            
+            popup.setLngLat(e.lngLat)
+                .setHTML(`<div class="popup-content"><strong>${name}</strong></div>`)
+                .addTo(map);    
+        });
+
+        map.on('mouseleave', 'n2000S_layer', () => {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+        map.on('mousemove', 'n2000A_layer', (e) => {
+            map.getCanvas().style.cursor = 'pointer';
+            
+            const props = e.features[0].properties;
+            const name = props.naam_n2k || 'Onbekend';
+            
+            popup.setLngLat(e.lngLat)
+                .setHTML(`<div class="popup-content"><strong>${name}</strong></div>`)
+                .addTo(map);    
+        });
+
+        map.on('mouseleave', 'n2000A_layer', () => {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+
+
         setupToggle('toggleN2000S', 'n2000S_layer');
         setupToggle('toggleN2000A', 'n2000A_layer');
         setupToggle('toggleVeenweide', 'veenweide_layer');
