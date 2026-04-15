@@ -59,7 +59,9 @@
 </head>
 <body>
 
+
 <div id="layerControl">
+    
     <strong>Kaartlagen</strong>
     
     <label><input type="checkbox" id="toggleN2000S" checked> <span class="color-box" style="background: #165D22;"></span> Stikstofgevoelige N2000</label>
@@ -186,6 +188,39 @@ async function initMap() {
             });
         };
 
+        // Exclusieve toggle logica
+        const setupExclusiveToggle = (elementId, layerId, groupIds) => {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            el.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    groupIds.forEach(id => {
+                        const otherEl = document.getElementById(id.replace('_layer', '').replace('n2000', 'toggleN2000').replace('bufferstrook_500m_s', 'toggleBufferstrook500S').replace('bufferstrook_750m_s', 'toggleBufferstrook750S').replace('bufferstrook_1000m_s', 'toggleBufferstrook1000S').replace('bufferstrook_500m_a', 'toggleBufferstrook500A').replace('bufferstrook_750m_a', 'toggleBufferstrook750A').replace('bufferstrook_1000m_a', 'toggleBufferstrook1000A'));
+                        // Simpele match voor de specifieke ID's in dit script
+                        const toggleMap = {
+                            'n2000S_layer': 'toggleN2000S',
+                            'n2000A_layer': 'toggleN2000A',
+                            'bufferstrook_500m_s_layer': 'toggleBufferstrook500S',
+                            'bufferstrook_750m_s_layer': 'toggleBufferstrook750S',
+                            'bufferstrook_1000m_s_layer': 'toggleBufferstrook1000S',
+                            'bufferstrook_500m_a_layer': 'toggleBufferstrook500A',
+                            'bufferstrook_750m_a_layer': 'toggleBufferstrook750A',
+                            'bufferstrook_1000m_a_layer': 'toggleBufferstrook1000A'
+                        };
+                        
+                        if (id !== layerId) {
+                            map.setLayoutProperty(id, 'visibility', 'none');
+                            const targetToggle = document.getElementById(toggleMap[id]);
+                            if (targetToggle) targetToggle.checked = false;
+                        }
+                    });
+                    map.setLayoutProperty(layerId, 'visibility', 'visible');
+                } else {
+                    map.setLayoutProperty(layerId, 'visibility', 'none');
+                }
+            });
+        };
+
          // --- Hover events ---
 
         map.on('mousemove', 'n2000S_layer', (e) => {
@@ -195,7 +230,7 @@ async function initMap() {
             const name = props.naam_n2k || 'Onbekend';
             
             popup.setLngLat(e.lngLat)
-                .setHTML(`<div class="popup-content"><strong>${name}</strong></div>`)
+                .setHTML(`<div class="popup-content">N2000: ${name}</div>`)
                 .addTo(map);    
         });
 
@@ -211,7 +246,7 @@ async function initMap() {
             const name = props.naam_n2k || 'Onbekend';
             
             popup.setLngLat(e.lngLat)
-                .setHTML(`<div class="popup-content"><strong>${name}</strong></div>`)
+                .setHTML(`<div class="popup-content">N2000: ${name}</div>`)
                 .addTo(map);    
         });
 
@@ -220,18 +255,25 @@ async function initMap() {
             popup.remove();
         });
 
+        // Definieer groepen
+        const groupN2000 = ['n2000S_layer', 'n2000A_layer'];
+        const groupBufferS = ['bufferstrook_500m_s_layer', 'bufferstrook_750m_s_layer', 'bufferstrook_1000m_s_layer'];
+        const groupBufferA = ['bufferstrook_500m_a_layer', 'bufferstrook_750m_a_layer', 'bufferstrook_1000m_a_layer'];
 
-        setupToggle('toggleN2000S', 'n2000S_layer');
-        setupToggle('toggleN2000A', 'n2000A_layer');
+        setupExclusiveToggle('toggleN2000S', 'n2000S_layer', groupN2000);
+        setupExclusiveToggle('toggleN2000A', 'n2000A_layer', groupN2000);
+        
+        setupExclusiveToggle('toggleBufferstrook500S', 'bufferstrook_500m_s_layer', groupBufferS);
+        setupExclusiveToggle('toggleBufferstrook750S', 'bufferstrook_750m_s_layer', groupBufferS);
+        setupExclusiveToggle('toggleBufferstrook1000S', 'bufferstrook_1000m_s_layer', groupBufferS);
+        
+        setupExclusiveToggle('toggleBufferstrook500A', 'bufferstrook_500m_a_layer', groupBufferA);
+        setupExclusiveToggle('toggleBufferstrook750A', 'bufferstrook_750m_a_layer', groupBufferA);
+        setupExclusiveToggle('toggleBufferstrook1000A', 'bufferstrook_1000m_a_layer', groupBufferA);
+
         setupToggle('toggleVeenweide', 'veenweide_layer');
         setupToggle('toggleGWB', 'gwb_layer');
         setupToggle('toggleBeekdal', 'beekdal_layer');
-        setupToggle('toggleBufferstrook500S', 'bufferstrook_500m_s_layer');
-        setupToggle('toggleBufferstrook750S', 'bufferstrook_750m_s_layer');
-        setupToggle('toggleBufferstrook1000S', 'bufferstrook_1000m_s_layer');
-        setupToggle('toggleBufferstrook500A', 'bufferstrook_500m_a_layer');
-        setupToggle('toggleBufferstrook750A', 'bufferstrook_750m_a_layer');
-        setupToggle('toggleBufferstrook1000A', 'bufferstrook_1000m_a_layer');
         setupToggle('toggleWaterschap', 'waterschap_layer');
         setupToggle('toggleProvincie', 'provincie_layer');
         setupToggle('toggleGemeente', 'gemeente_layer');
