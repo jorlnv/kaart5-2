@@ -146,9 +146,13 @@ async function initMap() {
         await addPmtilesLayer('n2000S', 'Stikstofgevoelige_N2000.pmtiles', 'Stikstofgevoelige_N2000', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.4 });
         await addPmtilesLayer('n2000A', 'Alle_N2000.pmtiles', 'Alle_N2000', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.4 }, 'none');
         
-        await addPmtilesLayer('bufferstrook_500m_s', 'Stikstofgevoelige_n2000_500.pmtiles', 'Stikstofgevoelige_N2000_500', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.2 }, 'none');
-        await addPmtilesLayer('bufferstrook_1000m_s', 'Stikstofgevoelige_n2000_1000.pmtiles', 'Stikstofgevoelige_n2000_1000', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.2 }, 'none');
-
+        await addPmtilesLayer('bufferstrook_500m_s', 'Stikstofgevoelige_n2000_500.pmtiles', 'Stikstofgevoelige_N2000_500', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'visible');
+        await addPmtilesLayer('bufferstrook_750m_s', 'Stikstofgevoelige_n2000_750.pmtiles', 'Stikstofgevoelige_n2000_750', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'none');
+        await addPmtilesLayer('bufferstrook_1000m_s', 'Stikstofgevoelige_n2000_1000.pmtiles', 'Stikstofgevoelige_n2000_1000', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'none');
+        await addPmtilesLayer('bufferstrook_500m_a', 'Alle_N2000_500.pmtiles', 'Alle_N2000_500', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'none');
+        await addPmtilesLayer('bufferstrook_750m_a', 'Alle_N2000_750.pmtiles', 'Alle_N2000_750', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'none');
+        await addPmtilesLayer('bufferstrook_1000m_a', 'Alle_N2000_1000.pmtiles', 'Alle_N2000_1000', 'fill', { 'fill-color': '#176A25', 'fill-opacity': 0.3 }, 'none');
+        
         await addPmtilesLayer('veenweide', 'Veenweide.pmtiles', 'Veenweide', 'fill', { 'fill-color': '#83E3BE', 'fill-opacity': 0.4 });
         await addPmtilesLayer('gwb', 'GWB.pmtiles', 'GWB', 'fill', { 'fill-color': '#D1A02C', 'fill-opacity': 0.6 });
         await addPmtilesLayer('beekdal', 'Beekdalen.pmtiles', 'Beekdalen', 'fill', { 'fill-color': '#6cb0d8', 'fill-opacity': 0.6 });
@@ -181,7 +185,11 @@ async function initMap() {
         setupToggle('toggleGWB', 'gwb_layer');
         setupToggle('toggleBeekdal', 'beekdal_layer');
         setupToggle('toggleBufferstrook500S', 'bufferstrook_500m_s_layer');
+        setupToggle('toggleBufferstrook750S', 'bufferstrook_750m_s_layer');
         setupToggle('toggleBufferstrook1000S', 'bufferstrook_1000m_s_layer');
+        setupToggle('toggleBufferstrook500A', 'bufferstrook_500m_a_layer');
+        setupToggle('toggleBufferstrook750A', 'bufferstrook_750m_a_layer');
+        setupToggle('toggleBufferstrook1000A', 'bufferstrook_1000m_a_layer');
         setupToggle('toggleWaterschap', 'waterschap_layer');
         setupToggle('toggleProvincie', 'provincie_layer');
         setupToggle('toggleGemeente', 'gemeente_layer');
