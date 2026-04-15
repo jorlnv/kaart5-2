@@ -64,9 +64,9 @@
     
     <label><input type="checkbox" id="toggleN2000S" checked> <span class="color-box" style="background: #165D22;"></span> Stikstofgevoelige N2000</label>
     <label><input type="checkbox" id="toggleN2000A"> <span class="color-box" style="background: #165D22;"></span> Alle N2000</label>
-    <label><input type="checkbox" id="toggleVeenweide" checked> <span class="color-box" style="background: #9932CC;"></span> Veenweidegebieden</label>
-    <label><input type="checkbox" id="toggleGWB" checked> <span class="color-box" style="background: #C1A81E;"></span> Grondwaterbescherming</label>
-    <label><input type="checkbox" id="toggleBeekdal" checked> <span class="color-box" style="background: #1D405D;"></span> Beekdalen</label>
+    <label><input type="checkbox" id="toggleVeenweide" checked> <span class="color-box" style="background: #83E3BE;"></span> Veenweidegebieden</label>
+    <label><input type="checkbox" id="toggleGWB" checked> <span class="color-box" style="background: #D1A02C;"></span> Grondwaterbescherming</label>
+    <label><input type="checkbox" id="toggleBeekdal" checked> <span class="color-box" style="background: #6cb0d8;"></span> Beekdalen</label>
   
     <hr>
     <strong>Overgangsgebieden</strong>
@@ -149,9 +149,9 @@ async function initMap() {
         await addPmtilesLayer('bufferstrook_500m_s', 'Stikstofgevoelige_n2000_500.pmtiles', 'Stikstofgevoelige_N2000_500', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.2 }, 'none');
         await addPmtilesLayer('bufferstrook_1000m_s', 'Stikstofgevoelige_n2000_1000.pmtiles', 'Stikstofgevoelige_n2000_1000', 'fill', { 'fill-color': '#165D22', 'fill-opacity': 0.2 }, 'none');
 
-        await addPmtilesLayer('veenweide', 'Veenweide.pmtiles', 'Veenweide', 'fill', { 'fill-color': '#9932CC', 'fill-opacity': 0.4 });
-        await addPmtilesLayer('gwb', 'GWB.pmtiles', 'GWB', 'fill', { 'fill-color': '#C1A81E', 'fill-opacity': 0.6 });
-        await addPmtilesLayer('beekdal', 'Beekdalen.pmtiles', 'Beekdalen', 'fill', { 'fill-color': '#1D405D', 'fill-opacity': 0.6 });
+        await addPmtilesLayer('veenweide', 'Veenweide.pmtiles', 'Veenweide', 'fill', { 'fill-color': '#83E3BE', 'fill-opacity': 0.4 });
+        await addPmtilesLayer('gwb', 'GWB.pmtiles', 'GWB', 'fill', { 'fill-color': '#D1A02C', 'fill-opacity': 0.6 });
+        await addPmtilesLayer('beekdal', 'Beekdalen.pmtiles', 'Beekdalen', 'fill', { 'fill-color': '#6cb0d8', 'fill-opacity': 0.6 });
 
         // --- Administratieve Lagen ---
         await addPmtilesLayer('waterschap', 'Waterschap.pmtiles', 'Waterschap', 'line', { 'line-color': '#333', 'line-width': 1.5 }, 'none');
@@ -159,13 +159,13 @@ async function initMap() {
         await addPmtilesLayer('gemeente', 'Gemeentes.pmtiles', 'Gemeentes', 'line', { 'line-color': '#666', 'line-width': 1.5 }, 'none');
 
         // --- Specifieke Gebieden (Python styling) ---
-        await addPmtilesLayer('veluwe', 'Veluwe_shape.pmtiles', 'Veluwe_shape', 'line', { 'line-color': '#9C6F04', 'line-width': 3 });
-        await addPmtilesLayer('peel', 'Peel_shape.pmtiles', 'Peel_shape', 'line', { 'line-color': '#C57E0C', 'line-width': 3 });
-        await addPmtilesLayer('hart_noorden', 'Hart_shape.pmtiles', 'Hart_shape', 'line', { 'line-color': '#52116B', 'line-width': 3 });
-        await addPmtilesLayer('groene_hart', 'GroeneHart_shape.pmtiles', 'GroeneHart_shape', 'line', { 'line-color': '#8B0000', 'line-width': 3 });
-        await addPmtilesLayer('noordwest_overijssel', 'NW_Overijssel_shape.pmtiles', 'NW_Overijssel_shape', 'line', { 'line-color': '#A820A6', 'line-width': 3 });
-        await addPmtilesLayer('brainport', 'Brainport_shape.pmtiles', 'Brainport_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
-        await addPmtilesLayer('rotterdam', 'Rotterdam_shape.pmtiles', 'Rotterdam_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
+        await addPmtilesLayer('veluwe', 'Veluwe_shape.pmtiles', 'Veluwe_shape', 'line', { 'line-color': '#9C6F04', 'line-width': 3 }, 'none');
+        await addPmtilesLayer('peel', 'Peel_shape.pmtiles', 'Peel_shape', 'line', { 'line-color': '#C57E0C', 'line-width': 3 }, 'none');
+        await addPmtilesLayer('hart_noorden', 'Hart_shape.pmtiles', 'Hart_shape', 'line', { 'line-color': '#52116B', 'line-width': 3 }, 'none');
+        await addPmtilesLayer('groene_hart', 'GroeneHart_shape.pmtiles', 'GroeneHart_shape', 'line', { 'line-color': '#8B0000', 'line-width': 3 }, 'none');
+        await addPmtilesLayer('noordwest_overijssel', 'NW_Overijssel_shape.pmtiles', 'NW_Overijssel_shape', 'line', { 'line-color': '#A820A6', 'line-width': 3 }, 'none');
+        await addPmtilesLayer('brainport', 'Brainport_shape.pmtiles', 'Brainport_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] }, 'none');;
+        await addPmtilesLayer('rotterdam', 'Rotterdam_shape.pmtiles', 'Rotterdam_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] }, 'none');
 
         // --- Toggles ---
         const setupToggle = (elementId, layerId) => {
