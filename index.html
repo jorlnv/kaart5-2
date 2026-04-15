@@ -257,19 +257,17 @@ async function initMap() {
 
         // Definieer groepen
         const groupN2000 = ['n2000S_layer', 'n2000A_layer'];
-        const groupBufferS = ['bufferstrook_500m_s_layer', 'bufferstrook_750m_s_layer', 'bufferstrook_1000m_s_layer'];
-        const groupBufferA = ['bufferstrook_500m_a_layer', 'bufferstrook_750m_a_layer', 'bufferstrook_1000m_a_layer'];
+        const groupBuffer = ['bufferstrook_500m_s_layer', 'bufferstrook_750m_s_layer', 'bufferstrook_1000m_s_layer','bufferstrook_500m_a_layer', 'bufferstrook_750m_a_layer', 'bufferstrook_1000m_a_layer'];
 
         setupExclusiveToggle('toggleN2000S', 'n2000S_layer', groupN2000);
         setupExclusiveToggle('toggleN2000A', 'n2000A_layer', groupN2000);
         
-        setupExclusiveToggle('toggleBufferstrook500S', 'bufferstrook_500m_s_layer', groupBufferS);
-        setupExclusiveToggle('toggleBufferstrook750S', 'bufferstrook_750m_s_layer', groupBufferS);
-        setupExclusiveToggle('toggleBufferstrook1000S', 'bufferstrook_1000m_s_layer', groupBufferS);
-        
-        setupExclusiveToggle('toggleBufferstrook500A', 'bufferstrook_500m_a_layer', groupBufferA);
-        setupExclusiveToggle('toggleBufferstrook750A', 'bufferstrook_750m_a_layer', groupBufferA);
-        setupExclusiveToggle('toggleBufferstrook1000A', 'bufferstrook_1000m_a_layer', groupBufferA);
+        setupExclusiveToggle('toggleBufferstrook500S', 'bufferstrook_500m_s_layer', groupBuffer);
+        setupExclusiveToggle('toggleBufferstrook750S', 'bufferstrook_750m_s_layer', groupBuffer);
+        setupExclusiveToggle('toggleBufferstrook1000S', 'bufferstrook_1000m_s_layer', groupBuffer);
+        setupExclusiveToggle('toggleBufferstrook500A', 'bufferstrook_500m_a_layer', groupBuffer);
+        setupExclusiveToggle('toggleBufferstrook750A', 'bufferstrook_750m_a_layer', groupBuffer);
+        setupExclusiveToggle('toggleBufferstrook1000A', 'bufferstrook_1000m_a_layer', groupBuffer);
 
         setupToggle('toggleVeenweide', 'veenweide_layer');
         setupToggle('toggleGWB', 'gwb_layer');
