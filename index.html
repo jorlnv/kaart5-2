@@ -166,9 +166,9 @@ async function initMap() {
         const zoneLineWidth = [
             'interpolate', ['linear'], ['zoom'],
             7, 1,   // Zoom 7: 1px dik
-            10, 3,  // Zoom 10: 3px dik
-            12, 5,
-            14, 8   // Zoom 14: 8px dik
+            10, 4,  // Zoom 10: 3px dik
+            12, 7,
+            14, 10   // Zoom 14: 8px dik
         ];
         await addPmtilesLayer('veluwe', 'Veluwe_shape.pmtiles', 'Veluwe_shape', 'line', { 'line-color': '#9C6F04', 'line-width': zoneLineWidth }, 'none');
         await addPmtilesLayer('peel', 'Peel_shape.pmtiles', 'Peel_shape', 'line', { 'line-color': '#C57E0C', 'line-width': zoneLineWidth }, 'none');
