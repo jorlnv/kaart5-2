@@ -159,13 +159,13 @@ async function initMap() {
         await addPmtilesLayer('gemeente', 'Gemeentes.pmtiles', 'Gemeentes', 'line', { 'line-color': '#666', 'line-width': 1.5 }, 'none');
 
         // --- Specifieke Gebieden (Python styling) ---
-        await addPmtilesLayer('veluwe', 'Veluwe.pmtiles', 'Veluwe', 'line', { 'line-color': '#9C6F04', 'line-width': 3 });
-        await addPmtilesLayer('peel', 'Peel.pmtiles', 'Peel', 'line', { 'line-color': '#C57E0C', 'line-width': 3 });
-        await addPmtilesLayer('hart_noorden', 'HartNoorden.pmtiles', 'HartNoorden', 'line', { 'line-color': '#52116B', 'line-width': 3 });
-        await addPmtilesLayer('groene_hart', 'GroeneHart.pmtiles', 'GroeneHart', 'line', { 'line-color': '#8B0000', 'line-width': 3 });
-        await addPmtilesLayer('noordwest_overijssel', 'NoordwestOverijssel.pmtiles', 'NoordwestOverijssel', 'line', { 'line-color': '#A820A6', 'line-width': 3 });
-        await addPmtilesLayer('brainport', 'Brainport.pmtiles', 'Brainport', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
-        await addPmtilesLayer('rotterdam', 'Rotterdam.pmtiles', 'Rotterdam', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
+        await addPmtilesLayer('veluwe', 'Veluwe_shape.pmtiles', 'Veluwe_shape', 'line', { 'line-color': '#9C6F04', 'line-width': 3 });
+        await addPmtilesLayer('peel', 'Peel_shape.pmtiles', 'Peel_shape', 'line', { 'line-color': '#C57E0C', 'line-width': 3 });
+        await addPmtilesLayer('hart_noorden', 'Hart_shape.pmtiles', 'Hart_shape', 'line', { 'line-color': '#52116B', 'line-width': 3 });
+        await addPmtilesLayer('groene_hart', 'GroeneHart_shape.pmtiles', 'GroeneHart_shape', 'line', { 'line-color': '#8B0000', 'line-width': 3 });
+        await addPmtilesLayer('noordwest_overijssel', 'NW_Overijssel_shape.pmtiles', 'NW_Overijssel_shape', 'line', { 'line-color': '#A820A6', 'line-width': 3 });
+        await addPmtilesLayer('brainport', 'Brainport_shape.pmtiles', 'Brainport_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
+        await addPmtilesLayer('rotterdam', 'Rotterdam_shape.pmtiles', 'Rotterdam_shape', 'line', { 'line-color': '#000000', 'line-width': 3, 'line-dasharray': [2, 2] });
 
         // --- Toggles ---
         const setupToggle = (elementId, layerId) => {
